@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 
 class ListOfUsers extends Component {
   constructor(){
@@ -6,20 +7,18 @@ class ListOfUsers extends Component {
     this.state =  {visible:true};
   }
   render(){
+
     var buttonText = "Hide";
     var userDivs = "";
     var chooseUser = this.props.chooseUser;
     if(this.state.visible){
       buttonText = "Hide";
       userDivs = this.props.users.map(function(user){
-        return <div>
-            {user.first_name} - {user.last_name}
-            <a onClick={
-              ()=>{
-                chooseUser(user.id);
-              }
-            }> View </a>
-        </div>
+        return (<div>
+                {user.first_name} - {user.last_name}
+                <Link to={"/user/" + user.id}> View </Link>
+               </div>
+               )
       });
     }else{
       buttonText = "Show";
