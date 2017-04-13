@@ -16,5 +16,5 @@ function render(){
     document.getElementById('root')
   );
 }
-user = users[0];
+
 render();
