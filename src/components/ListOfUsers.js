@@ -8,15 +8,15 @@ class ListOfUsers extends Component {
   render(){
     var buttonText = "Hide";
     var userDivs = "";
-    var chooseUser = this.props.chooseUser;
     if(this.state.visible){
       buttonText = "Hide";
-      userDivs = this.props.users.map(function(user){
+      userDivs = this.props.users.map((user) => {
         return <div>
             {user.first_name} - {user.last_name}
-            <a onClick={
-              ()=>{
-                chooseUser(user.id);
+            <a href="#" onClick={
+              (e)=>{
+                e.preventDefault();
+                this.props.chooseUser(user.id);
               }
             }> View </a>
         </div>
