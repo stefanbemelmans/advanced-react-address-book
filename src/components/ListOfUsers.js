@@ -26,6 +26,11 @@ class ListOfUsers extends Component {
       userDivs = "";
     }
     return (<div>
+            <input onChange={
+              (e) => {
+                  this.props.filterUsers(e.target.value)
+              }
+            } />
             <button onClick={()=>{
                 this.setState({
                   visible:!this.state.visible
