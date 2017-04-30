@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from "react-redux";
 
 class ListOfUsers extends Component {
   constructor(){
@@ -43,5 +44,16 @@ class ListOfUsers extends Component {
           </div>)
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    users: state.users
+  };
+};
 
-export default ListOfUsers;
+
+
+const ListOfUsersContainer = connect(
+  mapStateToProps
+)(ListOfUsers);
+export default ListOfUsersContainer
+
