@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import users from './users';
-var user  = null;
+var currentUser  = null;
 let filteredUsers = users;
 
 function filterUsers(name){
@@ -12,8 +12,8 @@ function filterUsers(name){
   });
   render();
 }
-function chooseUser(id){
-  user = users.find((u)=> u.id === id);
+function chooseUser(user){
+  currentUser = user;
   render();
 }
 
@@ -21,11 +21,11 @@ function render(){
   ReactDOM.render(
     <App 
     filterUsers={filterUsers}
-    user={user} 
+    user={currentUser} 
     users={filteredUsers} 
     chooseUser={chooseUser}/>,
     document.getElementById('root')
   );
 }
-user = users[0];
+currentUser = users[0];
 render();

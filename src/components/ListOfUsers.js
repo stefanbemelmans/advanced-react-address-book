@@ -16,7 +16,7 @@ class ListOfUsers extends Component {
             <a href="#" onClick={
               (e)=>{
                 e.preventDefault();
-                this.props.chooseUser(user.id);
+                this.props.chooseUser(user);
               }
             }> View </a>
         </div>
