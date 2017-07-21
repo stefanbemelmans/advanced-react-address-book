@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
@@ -7,7 +9,7 @@ import users from "./users";
 
 function render() {
   ReactDOM.render(
-    <App />,
+    <App users={users} />,
     document.getElementById("root")
   );
 }
