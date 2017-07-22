@@ -8,24 +8,35 @@ export default function ListOfUsers(props){
     // })
     
     let userAr = props.users.map((x,i) => <div key={i}>{x.first_name}</div>);
-    let show = 'Show';
+    var btn = document.getElementById('hideShow');
     function hideShow() {
         var x = document.getElementById('list');
+       
         if (x.style.display === 'none') {
+            btn.innerHTML = 'Hide'
             x.style.display = 'block';
-        } else {
+            
+           } else {
             x.style.display = 'none';
+             btn.innerHTML = 'Show'; 
+
         }
       }
-   
 
-    return  <div>
-            <div> <button onClick="hideShow()">{show}</button></div>
-        <div id='list'>
-            {userAr};
-        </div>
-        </div>
-    }
 
-        
-    
+    // function buttonFcn(){
+    //     this.value === 'Show'
+    // }
+    return
+            <div>
+      
+                <div> 
+                    <button id='hideShow' onClick={hideShow}>Hide</button>
+                
+                    <div id='list'>
+                        {userAr}
+                    </div>
+                </div>
+            </div>
+      
+}
