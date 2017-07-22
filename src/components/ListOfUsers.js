@@ -8,10 +8,11 @@ export default function ListOfUsers(props){
     // })
     
     let userAr = props.users.map((x,i) => <div key={i}>{x.first_name}</div>);
-    var btn = document.getElementById('hideShow');
+   
     function hideShow() {
         var x = document.getElementById('list');
-       
+        var btn = document.getElementById('hideShow');
+
         if (x.style.display === 'none') {
             btn.innerHTML = 'Hide'
             x.style.display = 'block';
