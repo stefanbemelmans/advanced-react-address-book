@@ -14,7 +14,7 @@ function App(props) {
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
        <ListOfUsers users={props.users} /> 
-       <UserDetail user={props.users[1]} />
+       <UserDetail user={props.users[0]} />
     </div>
   );
 }

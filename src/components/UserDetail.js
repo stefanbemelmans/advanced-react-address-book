@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function UserDetail(props){
-  let person = props.users;
-  return 
+ 
+   return 
     <div>
       <h3>{props.users.first_name} {props.users.last_name}</h3>
       {/* <p>{person.address}</p>
