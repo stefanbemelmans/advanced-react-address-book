@@ -4,7 +4,7 @@ export default function UserDetail(props){
  
    return 
     <div>
-      <h3>{props.users.first_name} {props.users.last_name}</h3>
+      <h3>{props.user.first_name} {props.user.last_name}</h3>
       {/* <p>{person.address}</p>
       <p>{person.phone}</p>
       <p>{person.occupation}</p>
