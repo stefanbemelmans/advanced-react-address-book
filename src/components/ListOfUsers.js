@@ -54,7 +54,8 @@ export default class ListOfUsers extends React.Component {
 				
         return(
           <div>
-						<input label='search'>Search></input>
+						<input type='text' label='search' defaultValue='Search'></input>
+						<br />
             <button id='display' onClick={this.onClick}>{show}</button> 
             <div id='list'>{userAr}</div>
 				</div>
