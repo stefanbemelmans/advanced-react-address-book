@@ -11,7 +11,7 @@ export default class ListOfUsers extends React.Component {
         }
     
 		 this.onClick = this.onClick.bind(this); 
-		//  this.onChange = this.onChange.bind(this);
+		 this.onChange = this.onChange.bind(this);
     }
     
     onClick()  {
