@@ -11,7 +11,7 @@ export default function ListOfUsers(props){
    
     function hideShow() {
         var x = document.getElementById('list');
-        var btn = document.getElementById('hideShow');
+        var btn = document.getElementById('display');
 
         if (x.style.display === 'none') {
             btn.innerHTML = 'Hide'
@@ -23,21 +23,11 @@ export default function ListOfUsers(props){
 
         }
       }
+   
+    return (<div>
+                <button id='display' onClick={hideShow}>show</button>
+                <div id='list'>{userAr}</div>
+            </div>)
 
 
-    // function buttonFcn(){
-    //     this.value === 'Show'
-    // }
-    return
-            <div>
-      
-                <div> 
-                    <button id='hideShow' onClick={hideShow}>Hide</button>
-                
-                    <div id='list'>
-                        {userAr}
-                    </div>
-                </div>
-            </div>
-      
 }
