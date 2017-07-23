@@ -2,7 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import ListOfUsers from './components/ListOfUsers';
-// import UserDetail from './components/UserDetail';
+import UserDetail from './components/UserDetail';
+
 function App(props) {
   return (
     <div className="App">
@@ -14,7 +15,8 @@ function App(props) {
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
        <ListOfUsers users={props.users} /> 
-       {/* <UserDetail user={props.users[1]} /> */}
+       console.log(props)
+         <UserDetail user={props.users[1]} />
     </div>
   );
 }
