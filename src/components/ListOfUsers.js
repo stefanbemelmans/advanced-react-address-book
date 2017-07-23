@@ -1,15 +1,17 @@
 import React from 'react';
-import Button from './Button.js';
+// import Button from './Button.js';
 // import users from '../users';
 
 export default class ListOfUsers extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            visible: true
+						visible: true,
+						searchText: ''
         }
     
-     this.onClick = this.onClick.bind(this); 
+		 this.onClick = this.onClick.bind(this); 
+		//  this.onChange = this.onChange.bind(this);
     }
     
     onClick()  {
@@ -22,7 +24,16 @@ export default class ListOfUsers extends React.Component {
             visible: this.state.visible ? false : true
 				})
 			
-    }
+			}
+		
+		// onChange(e) {
+		// 	this.setState({
+		// 		searchText: e.target.value
+
+		// 	})
+
+		
+	
     // var btn = document.getElementById('display');
 
     //     if (x.style.display === 'none') {
@@ -37,13 +48,13 @@ export default class ListOfUsers extends React.Component {
     //   }
     // }
     render(){
-        let  show = this.state.visible ? 'Hide' : 'Show';
-        let disp = this.state.visible ? 'block' : 'none';
+        
         let userAr = this.props.users.map((x,i) => <div key={i}>{x.first_name}</div>);
-			
+			 let show = this.state.visible ? 'Hide' : 'Show';
 				
         return(
           <div>
+						<input label='search'>Search></input>
             <button id='display' onClick={this.onClick}>{show}</button> 
             <div id='list'>{userAr}</div>
 				</div>
