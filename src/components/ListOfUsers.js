@@ -26,12 +26,12 @@ export default class ListOfUsers extends React.Component {
 			
 			}
 		
-		// onChange(e) {
-		// 	this.setState({
-		// 		searchText: e.target.value
+		onChange(e) {
+			this.setState({
+				searchText: e.target.value
 
-		// 	})
-
+			})
+		}
 		
 	
     // var btn = document.getElementById('display');
