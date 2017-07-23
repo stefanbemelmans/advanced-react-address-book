@@ -6,12 +6,12 @@ export default class ListOfUsers extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-						visible: true,
-						searchText: ''
+		    visible: true,
+			searchText: ''
         }
     
 		 this.onClick = this.onClick.bind(this); 
-		 this.onChange = this.onChange.bind(this);
+	     this.handleChange = this.handleChange.bind(this);
     }
     
     onClick()  {
@@ -26,13 +26,11 @@ export default class ListOfUsers extends React.Component {
 			
 			}
 		
-		onChange(e) {
+		handleChange(e) {
 			this.setState({
 				searchText: e.target.value
-
 			})
-		}
-		
+        }
 	
     // var btn = document.getElementById('display');
 
@@ -49,17 +47,17 @@ export default class ListOfUsers extends React.Component {
     // }
     render(){
         
-        let userAr = this.props.users.map((x,i) => <div key={i}>{x.first_name}</div>);
+        let userAr = this.props.users.map((x,i) => <div key={i}><a href={this.props.selectUser}{x.first_name}</div>);
 			 let show = this.state.visible ? 'Hide' : 'Show';
 				
         return(
-          <div>
-						<input type='text' label='search' defaultValue='Search'></input>
-						<br />
-            <button id='display' onClick={this.onClick}>{show}</button> 
-            <div id='list'>{userAr}</div>
-				</div>
-				);
+                <div>
+                    <input type='text' label='search' defaultValue='Search' onChange={(e)=>{this.handleChange(e)}}></input>
+                    <br />
+                    <button id='display' onClick={this.onClick}>{show}</button> 
+                    <div id='list'>{userAr}</div>
+                </div>
+			);
 
 
     }

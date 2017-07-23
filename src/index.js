@@ -6,10 +6,15 @@ import App from "./App";
 import "./index.css";
 import users from "./users";
 
+let currentUser;
+
+function selectUser(user){
+  currentUser = user;
+}
 
 function render() {
   ReactDOM.render(
-    <App users={users} />,
+    <App users={users} getUser={(user) => selectUser(user)} />,
     document.getElementById("root")
   );
 }
