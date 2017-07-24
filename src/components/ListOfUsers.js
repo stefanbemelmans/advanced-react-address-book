@@ -10,8 +10,9 @@ export default class ListOfUsers extends React.Component {
 			searchText: ''
         }
     
-		 this.onClick = this.onClick.bind(this); 
-	     this.handleChange = this.handleChange.bind(this);
+		this.onClick = this.onClick.bind(this); 
+        this.handleChange = this.handleChange.bind(this);
+        this.userClick = this.userClick.bind(this);
    }
     onClick()  {
 			if(document.getElementById('list').style.display === (""||'none')){
@@ -25,12 +26,18 @@ export default class ListOfUsers extends React.Component {
 			
 			}
 		
-		handleChange(e) {
+	handleChange(e) {
 			this.setState({
 				searchText: e.target.value
 			})
         }
-	
+    
+    userClick(e) {
+       console.log(e.target);
+        let user = this.props.users.filter(x => x.first_name === e.target.innerHtml);
+        console.log(user);
+        this.props.getUser(user);
+    }
     // var btn = document.getElementById('display');
 
     //     if (x.style.display === 'none') {
@@ -45,8 +52,8 @@ export default class ListOfUsers extends React.Component {
     //   }
     // }
     render(){
-        
-        let userAr = this.props.users.map((x,i) => <div key={i}><a onClick={props.getUser(x)}>{x.first_name}</a></div>);
+         
+        let userAr = this.props.users.map((x,i) => <div key={i}><a href='#' onClick={(e) =>{this.userClick(e)}}>{x.first_name}</a></div>);
 			 let show = this.state.visible ? 'Hide' : 'Show';
 				
         return(
