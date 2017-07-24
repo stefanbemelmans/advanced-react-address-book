@@ -34,23 +34,12 @@ export default class ListOfUsers extends React.Component {
     
     userClick(e) {
        console.log(e.target);
-        let user = this.props.users.filter(x => x.first_name === e.target.innerHtml);
+        let user = this.props.users.filter(function(x){ 
+            return x.first_name === e.target.innerHTML;
+        })
         console.log(user);
         this.props.getUser(user);
     }
-    // var btn = document.getElementById('display');
-
-    //     if (x.style.display === 'none') {
-    //         btn.innerHTML = 'Hide'
-    //         x.style.display = 'block';
-    //         console.log(props);
-    //        } else {
-    //         x.style.display = 'none';
-    //          btn.innerHTML = 'Show'; 
-
-    //     }
-    //   }
-    // }
     render(){
          
         let userAr = this.props.users.map((x,i) => <div key={i}><a href='#' onClick={(e) =>{this.userClick(e)}}>{x.first_name}</a></div>);

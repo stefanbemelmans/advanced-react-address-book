@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function UserDetail(props){
- 
+ if(props.user){
     let person = props.user;
     let personKeys = Object.keys(props.user).slice(1,6);
     let pic = props.user.avatar;
@@ -14,8 +14,11 @@ export default function UserDetail(props){
     <div className='profile'>
         <img src={pic} className='thumbnail' alt="log" />
         {profile}
-    </div>
-);
+    </div>);
+}else{
+    return null;
+}
+
   
   
 
