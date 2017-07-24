@@ -7,3 +7,24 @@ body {
   display:block;
   
 }
+
+.thumbnail {
+  margin: 5px;
+  height: 8rem;
+  width: 6rem;
+  border: blue 2px;
+  box-shadow: blanchedalmond, 0342, 2349;
+
+}
+
+.profile {
+  margin: 7px;
+  background-color: lightcoral;
+  font-family: 'Times New Roman', Times, serif;
+  color: purple;
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

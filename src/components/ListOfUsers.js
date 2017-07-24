@@ -47,7 +47,7 @@ export default class ListOfUsers extends React.Component {
     // }
     render(){
         
-        let userAr = this.props.users.map((x,i) => <div key={i}><a href={this.props.selectUser}{x.first_name}</div>);
+        let userAr = this.props.users.map((x,i) => <div key={i}><a href='#'>{x.first_name}</a></div>);
 			 let show = this.state.visible ? 'Hide' : 'Show';
 				
         return(

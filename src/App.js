@@ -5,6 +5,7 @@ import ListOfUsers from './components/ListOfUsers';
 import UserDetail from './components/UserDetail';
 
 function App(props) {
+
   return (
     <div className="App">
       <div className="App-header">
@@ -16,7 +17,7 @@ function App(props) {
       </p>
        <ListOfUsers users={props.users} /> 
        console.log(props)
-         <UserDetail user={props.users[1]} />
+         <UserDetail user={props.curUser} />
     </div>
   );
 }
