@@ -12,8 +12,7 @@ export default class ListOfUsers extends React.Component {
     
 		 this.onClick = this.onClick.bind(this); 
 	     this.handleChange = this.handleChange.bind(this);
-    }
-    
+   }
     onClick()  {
 			if(document.getElementById('list').style.display === (""||'none')){
 				document.getElementById('list').style.display = 'block';
@@ -47,7 +46,7 @@ export default class ListOfUsers extends React.Component {
     // }
     render(){
         
-        let userAr = this.props.users.map((x,i) => <div key={i}><a href='#'>{x.first_name}</a></div>);
+        let userAr = this.props.users.map((x,i) => <div key={i}><a onClick={props.getUser(x)}>{x.first_name}</a></div>);
 			 let show = this.state.visible ? 'Hide' : 'Show';
 				
         return(

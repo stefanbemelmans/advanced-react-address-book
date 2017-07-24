@@ -8,13 +8,13 @@ import users from "./users";
 
 let currentUser = users[0];
 
-function selectUser(user){
+function selectUser(user) {
   currentUser = user;
 }
 
 function render() {
   ReactDOM.render(
-    <App users={users} getUser={(user) => selectUser(user)} curUser = {currentUser} />,
+    <App users={users} getUser={selectUser} curUser={currentUser} />,
     document.getElementById("root")
   );
 }
