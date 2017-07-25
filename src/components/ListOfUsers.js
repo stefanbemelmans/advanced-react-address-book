@@ -37,7 +37,7 @@ export default class ListOfUsers extends React.Component {
         let user = this.props.users.filter(function(x){ 
             return x.first_name === e.target.innerHTML;
         })
-        console.log(user);
+        console.log(user[0]);
         this.props.getUser(user);
     }
     render(){

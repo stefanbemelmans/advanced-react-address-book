@@ -6,11 +6,12 @@ import App from "./App";
 import "./index.css";
 import users from "./users";
 
-let currentUser = {};
+let currentUser;
 
 function selectUser(user) {
   currentUser = user;
   console.log(currentUser);
+  render();
 }
 
 function render() {
