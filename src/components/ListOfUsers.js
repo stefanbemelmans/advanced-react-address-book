@@ -42,10 +42,16 @@ export default class ListOfUsers extends React.Component {
     }
     render(){
          
-        let userAr = this.props.users.map((x,i) => <div key={i}><a href='#' onClick={(e) =>{this.userClick(e)}}>{x.first_name}</a></div>);
+      
 			 let show = this.state.visible ? 'Hide' : 'Show';
-				
-        return(
+		var filterUsers = this.props.users.filter((u)=>{
+                // if(this.state.searchText == ""){
+                //     return true;
+                // }
+                return u.first_name.indexOf(this.state.searchText) > -1 ? true : (this.state.searchText == "" ? true : false);
+            })
+            let userAr = filterUsers.map((x,i) => <div key={i}><a href='#' onClick={(e) =>{this.userClick(e)}}>{x.first_name}</a></div>);		
+             return(
                 <div>
                     <input type='text' label='search' defaultValue='Search' onChange={(e)=>{this.handleChange(e)}}></input>
                     <br />
