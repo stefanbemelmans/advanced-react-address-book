@@ -4,13 +4,23 @@ import "./App.css";
 import ListOfUsers from './components/ListOfUsers';
 import UserDetail from './components/UserDetail';
 import Select from 'react-select';
+import courses from "./courses"
 
 // var Select = require('react-select');
 
-var options = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two' }
-];
+var courseList = courses.map(function(x){ 
+  return (
+  {
+  value:x.location,
+  label:x.location
+  }
+  )
+});
+
+// var options = [
+//   { value: 'one', label: 'One' },
+//   { value: 'two', label: 'Two' }
+// ];
 
 function logChange(val) {
   console.log("Selected: " + JSON.stringify(val));
@@ -22,13 +32,13 @@ function logChange(val) {
 //filter the options based on buttons, build the array to send to the select element. 
 function App(props) {
   
-  let names = props.users.map((x) => {
-    return {
-      value:x.first_name, 
-      label:x.first_name
-    }
-    });
-  console.log(names)
+  // let names = props.users.map((x) => {
+  //   return {
+  //     value:x.first_name, 
+  //     label:x.first_name
+  //   }
+  //   });
+  
   return (
     <div className="App">
       <div className="App-header">
@@ -44,7 +54,7 @@ function App(props) {
          <Select
             name="form-field-name"
             value="one"
-            options={names}
+            options={courseList}
             onChange={logChange}
           />
     </div>
