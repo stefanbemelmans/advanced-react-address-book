@@ -13,12 +13,13 @@ let days = [
 
 export default function SelectCont(props){
 
-  return
+  return(<div>
+    <input type="checkbox" value="off" label="M-W">MonWed</input>
       <Select 
       options={days}
        />
-    
-  };
+    </div>
+  )};
 
 
 //import Select from "react-select";
