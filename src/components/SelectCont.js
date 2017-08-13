@@ -3,46 +3,23 @@ import {Component} from "react";
 import Select from 'react-select';
 import courses from "../courses";
 
-// var Select = require('react-select');
-export default class SelectCont extends React.Component  {
-  constructor(props){
-    this.State ={
-      displayName: "Days Of The Week",
-      options: []
-  }
-
-this.componentDidMount(){
-    let days = [
+let days = [
       {value:"M", label:"MON-WENS"}, 
       {value:"T",label:"TUES-THURS"},
       {value:"W", label:"WENS-FRI"},
       {value:"S",label:"SAT"}
     ];
-    this.setState({
-      options: days
-    });
-};    
-    
-  
-  
- onChange(val) {
-  console.log(value);
-  this.setState({
-     value:val
-  }
-}
-  }
-  render() {
 
-    return (
 
+export default function SelectCont(props){
+
+  return
       <Select 
       options={days}
-      onChange={onChange}
-      />
-    );
+       />
+    
   };
-}
+
 
 //import Select from "react-select";
 
