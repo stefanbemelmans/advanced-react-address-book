@@ -4,32 +4,19 @@ import "./App.css";
 import ListOfUsers from './components/ListOfUsers';
 import UserDetail from './components/UserDetail';
 import Select from 'react-select';
+// import SelectCont from './components/SelectCont';
 import courses from "./courses"
 
-// var Select = require('react-select');
-
-var courseList = courses.map(function(x){ 
-  return (
-  {
-  value:x.location,
-  label:x.location
-  }
-  )
-});
-
-// var options = [
-//   { value: 'one', label: 'One' },
-//   { value: 'two', label: 'Two' }
-// ];
-
-function logChange(val) {
-  console.log("Selected: " + JSON.stringify(val));
+let days = [
+      {value:"M", label:"MON-WENS"}, 
+      {value:"T",label:"TUES-THURS"},
+      {value:"W", label:"WENS-FRI"},
+      {value:"S",label:"SAT"}
+    ];
+function onChange(value) {
+  
 }
 
-
-//import Select from "react-select";
-
-//filter the options based on buttons, build the array to send to the select element. 
 function App(props) {
   
   // let names = props.users.map((x) => {
@@ -52,11 +39,22 @@ function App(props) {
        console.log(props)
          <UserDetail user={props.curUser} />
          <Select
+          options={days}
+          />
+          {/* <Select
+            name="DAYS"
+            value={value}
+            options={days}
+            onChange={onChange}
+            label="Days"
+          />
+
+         <Select
             name="form-field-name"
             value="one"
             options={courseList}
-            onChange={logChange}
-          />
+            onChange={onChange}
+          /> */}
     </div>
   );
 }
