@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
 import users from "./users";
+import 'react-select/dist/react-select.css';
 
 let currentUser;
 
