@@ -11,8 +11,9 @@ export default class SelectCont extends React.Component {
         return {value:x.course,label:x.course};
       }),
       displayName: 'Courses',
-      selectValue: 'Full-Stack',
-      course: 'Full-Stack',
+      selectValue: "",
+      day: "",
+      course: "",
       disabled: false,
       searchable: this.props.searchable,
       clearable: true
@@ -40,14 +41,14 @@ export default class SelectCont extends React.Component {
       //   clearable: true,
       // };
     
-    // switchCountry (e) {
-    //   var newCountry = e.target.value;
-    //   console.log('Country changed to ' + newCountry);
-    //   this.setState({
-    //     country: newCountry,
-    //     selectValue: null
-    //   });
-    // }
+    switchDays (e) {
+      var newDay = e.target.value;
+      console.log('Day changed to ' + newDay);
+      this.setState({
+       day: newDay,
+      selectValue: null
+      });
+    }
     
       //  let courseName = courses.map((x) => {
       //   return{
@@ -61,6 +62,7 @@ export default class SelectCont extends React.Component {
         selectValue: newValue
       });
     };
+    //
     focusStateSelect () {
       this.refs.stateSelect.focus();
     }
