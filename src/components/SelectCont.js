@@ -3,16 +3,21 @@ import {Component} from "react";
 import Select from 'react-select';
 import courses from "../courses";
 
-
-
-
 export default class SelectCont extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      options: courses
+      options: courses.map((x) => {
+        return {value:x.course,label:x.course};
+      }),
+      displayName: 'Courses',
+      selectValue: 'Full-Stack',
+      course: 'Full-Stack',
+      disabled: false,
+      searchable: this.props.searchable,
+      clearable: true
     }
-    //this.filterOptions = this.filterOptions.bind(this);
+    
     let days = [
       {value:"M", label:"MON-WENS"}, 
       {value:"T",label:"TUES-THURS"},
@@ -21,31 +26,41 @@ export default class SelectCont extends React.Component {
     ];
   }
  
-    displayName: 'StatesField',
     
-    getInitialState () {
-      return {
-        country: 'AU',
-        disabled: false,
-        searchable: this.props.searchable,
-        selectValue: 'new-south-wales',
-        clearable: true,
-      };
-    }
-    switchCountry (e) {
-      var newCountry = e.target.value;
-      console.log('Country changed to ' + newCountry);
-      this.setState({
-        country: newCountry,
-        selectValue: null
-      });
-    }
-    updateValue (newValue) {
+    // componentDidMount() {
+     
+      
+
+      
+      // return {
+      //   country: 'AU',
+      //   disabled: false,
+      //   searchable: this.props.searchable,
+      //   selectValue: 'new-south-wales',
+      //   clearable: true,
+      // };
+    
+    // switchCountry (e) {
+    //   var newCountry = e.target.value;
+    //   console.log('Country changed to ' + newCountry);
+    //   this.setState({
+    //     country: newCountry,
+    //     selectValue: null
+    //   });
+    // }
+    
+      //  let courseName = courses.map((x) => {
+      //   return{
+      //     label:x.course,
+      //     value: x.course
+      //   }
+      // }
+      updateValue (newValue) {
       console.log('State changed to ' + newValue);
       this.setState({
         selectValue: newValue
       });
-    }
+    };
     focusStateSelect () {
       this.refs.stateSelect.focus();
     }
@@ -65,7 +80,7 @@ export default class SelectCont extends React.Component {
 
 
 	render () {
-		var options = STATES[this.state.country];
+		var options = this.state.options;
 		return (
 			<div className="section">
 				<h3 className="section-heading">{this.props.label}</h3>
