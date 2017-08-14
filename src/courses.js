@@ -1,47 +1,54 @@
 let courses = [
   {
-    id: 0,
+    value: 0,
     location: "Dallas",
     days: ["M"],
     course: "Full-Stack",
-    startDate: "9/3/17"
+    startDate: "9/3/17",
+    label: "Full-Stack"
   }, {
-    id: 1,
+    value: 1,
     location: "San Antonio",
     days: ["M","T"],
     course: "Dot-Net",
-    startDate: "9/20/17"
+    startDate: "9/20/17",
+    label: "Dot-Net"
   }, {
-    id: 2,
+    value: 2,
     location: "San-Antonio",
     days: ["M"],
     course: "Full-Stack",
-    startDate: "9/15/17"
+    startDate: "9/15/17",
+    label: "Full-Stack"
   }, {
-    id: 3,
+    value: 3,
     location: "Austin",
     days: ["T"],
     course: "Web-VR",
-    startDate: "9/3/17"
+    startDate: "9/3/17",
+    label: "Web-VR"
   }, {
-    id: 4,
+    value: 4,
     location: "Dallas",
     days: ["T"],
     course: "Web-VR",
-    startDate: "9/20/17"
+    startDate: "9/20/17",
+    label: "Web-VR"
   },
     {
-      id: 5,
+    value: 5,
     location: "Austin",
     days: ["T"],
     course: "Full-Stack",
-    startDate: "9/15/17"
+    startDate: "9/15/17",
+    label: "Full-Stack"
   },{
-    id: 6,
+    value: 6,
     location: "Austin",
     days: ["S"],
     course: "Full-Stack",
-    startDate: "9/3/15"
+    startDate: "9/3/15",
+    label: "Full-Stack"
   },
   
 

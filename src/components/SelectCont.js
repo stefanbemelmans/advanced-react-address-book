@@ -95,15 +95,9 @@ export default class SelectCont extends React.Component {
 
 
 	render () {
-		var options = this.state.courses.filter((course) => {
-    if(course.days.includes(this.state.day)){
-      return {
-        value: course.days,
-        labale: course.course
-      }
-
-    }
-    })
+		var options = this.state.courses.filter((course) => course.days.includes(this.state.day))
+    
+    
 		return (
 			<div className="section">
 				<h3 className="section-heading">{this.props.label}</h3>
