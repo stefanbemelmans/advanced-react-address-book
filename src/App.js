@@ -7,12 +7,12 @@ import Select from 'react-select';
 import SelectCont from './components/SelectCont';
 import courses from "./courses"
 
-let days = [
-      {value:"M", label:"MON-WENS"}, 
-      {value:"T",label:"TUES-THURS"},
-      {value:"W", label:"WENS-FRI"},
-      {value:"S",label:"SAT"}
-    ];
+// let days = [
+//       {value:"M", label:"MON-WENS"}, 
+//       {value:"T",label:"TUES-THURS"},
+//       {value:"W", label:"WENS-FRI"},
+//       {value:"S",label:"SAT"}
+//     ];
 
 function App(props) {
   
@@ -36,7 +36,7 @@ function App(props) {
        console.log(props)
          <UserDetail user={props.curUser} />
          <SelectCont />
-    </div>
+    </div> 
   );
 }
 
