@@ -9,6 +9,7 @@ export default class SelectCont extends React.Component {
     this.state={
       options: courses.map((x) => {
         return {value:x.course,label:x.course};
+
       }),
       displayName: 'Courses',
       selectValue: "",
@@ -18,6 +19,8 @@ export default class SelectCont extends React.Component {
       searchable: this.props.searchable,
       clearable: true
     }
+      this.updateValue = this.updateValue.bind(this)
+    
     
     let days = [
       {value:"M", label:"MON-WENS"}, 
@@ -56,16 +59,19 @@ export default class SelectCont extends React.Component {
       //     value: x.course
       //   }
       // }
-      updateValue (newValue) {
+    updateValue (newValue) {
       console.log('State changed to ' + newValue);
+      
       this.setState({
-        selectValue: newValue
-      });
-    };
+        selectValue:  newValue 
+      })
+        //selectValue: newValue
+      };
+    
     //
     focusStateSelect () {
       this.refs.stateSelect.focus();
-    }
+    };
     toggleCheckbox (e) {
       let newState = {};
       newState[e.target.name] = e.target.checked;
@@ -105,12 +111,16 @@ export default class SelectCont extends React.Component {
 				</div>
 				<div className="checkbox-list">
 					<label className="checkbox">
-						<input type="radio" className="checkbox-control" checked={this.state.country === 'AU'} value="AU" onChange={this.switchCountry}/>
-						<span className="checkbox-label">Australia</span>
+						<input type="radio" className="checkbox-control" checked={this.state.day === 'day'} value="M" onChange={this.switchCountry}/>
+						<span className="checkbox-label">Monday and Wednesday</span>
 					</label>
 					<label className="checkbox">
-						<input type="radio" className="checkbox-control" checked={this.state.country === 'US'} value="US" onChange={this.switchCountry}/>
-						<span className="checkbox-label">United States</span>
+						<input type="radio" className="checkbox-control" checked={this.state.day === 'day'} value="T" onChange={this.switchCountry}/>
+						<span className="checkbox-label">Tuesday and Thursday</span>
+					</label>
+          	<label className="checkbox">
+						<input type="radio" className="checkbox-control" checked={this.state.day === 'S'} value="S" onChange={this.switchCountry}/>
+						<span className="checkbox-label">Saturday</span>
 					</label>
 				</div>
 			</div>
