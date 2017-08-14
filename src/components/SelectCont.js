@@ -8,6 +8,7 @@ export default class SelectCont extends React.Component {
   constructor(props) {
     super(props);
     this.state={
+      courses: courses,
       options: courses.map((x) => {
         return {value:x.id,label:x.course};
 
@@ -94,7 +95,15 @@ export default class SelectCont extends React.Component {
 
 
 	render () {
-		var options = this.state.options;
+		var options = this.state.courses.filter((course) => {
+    if(course.days.includes(this.state.day)){
+      return {
+        value: course.days,
+        labale: course.course
+      }
+
+    }
+    })
 		return (
 			<div className="section">
 				<h3 className="section-heading">{this.props.label}</h3>
@@ -129,7 +138,7 @@ export default class SelectCont extends React.Component {
 						<span className="checkbox-label">Saturday</span>
 					</label>
 				</div>
-        <CourseDetail course={this.state.selectValue} />
+        {/* <CourseDetail course={this.state.courses[this.state.selectValue]} /> */}
 			</div>
 		);
 	}
