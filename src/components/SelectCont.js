@@ -2,13 +2,14 @@ import React from "react";
 import {Component} from "react";
 import Select from 'react-select';
 import courses from "../courses";
+import CourseDetail from "./CourseDetail";
 
 export default class SelectCont extends React.Component {
   constructor(props) {
     super(props);
     this.state={
       options: courses.map((x) => {
-        return {value:x.course,label:x.course};
+        return {value:x.id,label:x.course};
 
       }),
       displayName: 'Courses',
@@ -19,7 +20,8 @@ export default class SelectCont extends React.Component {
       searchable: this.props.searchable,
       clearable: true
     }
-      this.updateValue = this.updateValue.bind(this)
+      this.updateValue = this.updateValue.bind(this);
+      this.switchDays = this.switchDays.bind(this);
     
     
     let days = [
@@ -45,14 +47,18 @@ export default class SelectCont extends React.Component {
       // };
     
     switchDays (e) {
-      var newDay = e.target.value;
-      console.log('Day changed to ' + newDay);
-      this.setState({
-       day: newDay,
-      selectValue: null
-      });
+      
+      if(!e.target.checked){
+      }else{
+        var newDay = e.target.value;
+        console.log('Day changed to ' + newDay);
+        this.setState({
+          day: newDay,
+          selectValue: null
+        });
+        
     }
-    
+  }
       //  let courseName = courses.map((x) => {
       //   return{
       //     label:x.course,
@@ -111,18 +117,19 @@ export default class SelectCont extends React.Component {
 				</div>
 				<div className="checkbox-list">
 					<label className="checkbox">
-						<input type="radio" className="checkbox-control" checked={this.state.day === 'day'} value="M" onChange={this.switchCountry}/>
+						<input type="radio" className="checkbox-control" checked={this.state.day === 'M'} value="M" onChange={this.switchDays}/>
 						<span className="checkbox-label">Monday and Wednesday</span>
 					</label>
 					<label className="checkbox">
-						<input type="radio" className="checkbox-control" checked={this.state.day === 'day'} value="T" onChange={this.switchCountry}/>
+						<input type="radio" className="checkbox-control" checked={this.state.day === 'T'} value="T" onChange={this.switchDays}/>
 						<span className="checkbox-label">Tuesday and Thursday</span>
 					</label>
           	<label className="checkbox">
-						<input type="radio" className="checkbox-control" checked={this.state.day === 'S'} value="S" onChange={this.switchCountry}/>
+						<input type="radio" className="checkbox-control" checked={this.state.day === 'S'} value="S" onChange={this.switchDays}/>
 						<span className="checkbox-label">Saturday</span>
 					</label>
 				</div>
+        <CourseDetail course={this.state.selectValue} />
 			</div>
 		);
 	}
