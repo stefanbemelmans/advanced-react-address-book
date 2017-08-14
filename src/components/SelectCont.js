@@ -67,7 +67,7 @@ export default class SelectCont extends React.Component {
       //   }
       // }
     updateValue (newValue) {
-      console.log('State changed to ' + newValue);
+      console.log('Course changed to ' + newValue);
       
       this.setState({
         selectValue:  newValue 
@@ -132,7 +132,7 @@ export default class SelectCont extends React.Component {
 						<span className="checkbox-label">Saturday</span>
 					</label>
 				</div>
-        {/* <CourseDetail course={this.state.courses[this.state.selectValue]} /> */}
+         <CourseDetail course={this.state.courses[this.state.selectValue]} /> 
 			</div>
 		);
 	}
