@@ -9,8 +9,8 @@ export default class SelectCont extends React.Component {
     super(props);
     this.state={
       courses: courses,
-      options: courses.map((x) => {
-        return {value:x.id,label:x.course};
+      options: courses.map((x, id) => {
+        return {value:x.days[id],label:x.course};
 
       }),
       displayName: 'Courses',
@@ -60,21 +60,23 @@ export default class SelectCont extends React.Component {
         
     }
   }
+
       //  let courseName = courses.map((x) => {
       //   return{
       //     label:x.course,
       //     value: x.course
       //   }
       // }
-    updateValue (newValue) {
-      console.log('Course changed to ' + newValue);
-      
-      this.setState({
-        selectValue:  newValue 
-      })
-        //selectValue: newValue
-      };
+
+  updateValue (newValue) {
+    console.log('Course changed to ' + newValue);
     
+    this.setState({
+      selectValue:  newValue 
+    })
+      //selectValue: newValue
+    };
+  
     //
     focusStateSelect () {
       this.refs.stateSelect.focus();
@@ -85,23 +87,22 @@ export default class SelectCont extends React.Component {
       this.setState(newState);
     }
   
-//   filterOptions(day) {
-//      return this.state.options.filter((x) => { 
-//      if(x.days.includes(day)){
-//        return x.days;
-//      }
-//     })
-// }
+  filterOptions(options, day) {
+     return f
+     }
+    
+
 
 
 	render () {
-		var options = this.state.courses.filter((course) => course.days.includes(this.state.day))
+		// var options = this.state.courses.filter((course) => course.days.includes(this.state.day))
     
     
 		return (
 			<div className="section">
 				<h3 className="section-heading">{this.props.label}</h3>
-				<Select ref="stateSelect" autofocus options={options} simpleValue clearable={this.state.clearable} name="selected-state" disabled={this.state.disabled} value={this.state.selectValue} onChange={this.updateValue} searchable={this.state.searchable} />
+
+				<Select ref="stateSelect" autofocus options={this.state.options} filterOptions={filterOptions} simpleValue clearable={this.state.clearable} name="selected-state" disabled={this.state.disabled} value={this.state.selectValue} onChange={this.updateValue} searchable={this.state.searchable} />
 
 				<div style={{ marginTop: 14 }}>
 					<button type="button" onClick={this.focusStateSelect}>Focus Select</button>
@@ -132,7 +133,7 @@ export default class SelectCont extends React.Component {
 						<span className="checkbox-label">Saturday</span>
 					</label>
 				</div>
-         <CourseDetail course={this.state.courses[this.state.selectValue]} /> 
+         {/* <CourseDetail course={this.state.courses[this.state.selectValue]} />  */}
 			</div>
 		);
 	}
